@@ -1,0 +1,32 @@
+body {
+  min-height: 100vh;
+  &.lock {
+    overflow: hidden;
+    touch-action: none;
+  }
+}
+// Базовые анимации:
+// @import "keyframes";
+
+// Стили для полноэкранного блока:
+// @import "fullscreen";
+
+// Стили основного ограничивающего контейнера =================================
+[class*="__container"] {
+  max-width: rem($containerWidth + $mainOffset * 2);
+  margin: 0 auto;
+  padding: 0 rem($mainOffset);
+}
+// Оболочка ===================================================================
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: hidden; // clip - если используется в проекте position: sticky
+}
+.page {
+  flex: 1 1 auto;
+  &_start {
+    padding-top: rem($headerHeight);
+  }
+}

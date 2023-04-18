@@ -1,0 +1,286 @@
+.header {
+  width: 100%;
+  height: 100vh;
+  &__container {
+    
+  }
+  &__logo {
+    &-img {
+      width: 215px;
+      @include media(575){
+        width: 45vw;
+      }
+    }
+  }
+  &__menu{
+    width: 40%;
+  }
+  &__top{
+    height: rem($headerHeight);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1000;
+    &::after{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50%;
+      height: 100px;
+      width: 200%;
+      background-color: #fff;
+      opacity: 0.2;
+      z-index: -1;
+    }
+  }
+  &__content{
+    
+  }
+}
+.menu {
+  &__list {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    height: rem(62);
+    &:first-child{
+      @include media(991){
+        display: none;
+      }
+    }
+  }
+
+  &__phone-button {
+    width: rem(204);
+    height: rem(52);
+    border: 1px solid var(--red);
+    border: 1px solid $red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+
+  &__phone-number {
+    color: $red;
+    font-family: "Rubik", sans-serif;
+  }
+
+  &__link {
+
+  }
+  
+  &__text {
+    padding-right: 14px;
+    font-family: 'Rubik', sans-serif;
+    @include media(575){
+      display: none;
+    }
+  }
+
+  &__burger {
+    
+    &-img{
+      width: 47px;
+    }
+  }
+}
+.languages{
+  display: flex;
+  align-items: center;
+  padding-right: 23px;
+  border-right: 1px solid $black;
+  @include media(575){
+    padding-right: 10px;
+  }
+  .language{
+    &.active{
+      font-weight: bold;
+    }
+  }
+  .separator{
+    padding: 0 5px;
+  }
+}
+.dropdown-menu {
+  width: 0;
+  overflow: hidden;
+  position: fixed;
+  height: 100vh;
+  z-index: 1000;
+  opacity: 0;
+  right: 0;
+  background-color: $white;
+  transition: all 1s;
+  pointer-events: none;
+
+  &__close {
+    cursor: pointer; 
+    position: absolute; 
+    top: 20px; 
+    left: 10px;
+    &:before, &:after{
+      content: ""; 
+      position: absolute; 
+      width: 24px; 
+      height: 4px; 
+      background: gray;
+    }
+    &:before{
+      transform: rotate(45deg);
+    }
+    &:after{
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__navigation {
+
+  }
+
+  &__link {
+    color: $black;
+    text-align: right;
+    &:hover{
+      color: $red;
+    }
+    &.temp{
+      opacity: 0.5;
+    }
+  }
+
+  &__link-title, &__link-subtitle {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  &__link-title {
+    margin-bottom: 5px;
+  }
+
+  &__link-subtitle {
+    margin-bottom: 40px;
+  }
+  
+  @include media(575){
+    padding: 80px;
+  }
+}
+body.menu-open{
+  overflow: hidden;
+  .dropdown-menu{
+    width: auto;
+    pointer-events: all;
+    padding: 80px;
+    opacity: 1;
+  }
+}
+.first-screen {
+  &__background-galery {
+    top: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+  }
+
+  &__content-block{
+  
+  }
+}
+.background-galery {
+
+  &__img-list {
+    display: flex;
+    width: 400vw;
+    height: 100%;
+  }
+
+  &__img-item {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("@img/home-img.jpg");
+  }
+
+  &__img {
+    display: none;
+  }
+
+  &__dots {
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 96vw;
+    height: 135px;
+  }
+}
+.module-0{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%,0);
+  &__container{
+    width: rem($containerWidth + $mainOffset * 2);
+  }
+}
+.content-block {
+  position: relative;
+  &::after{
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -10px;
+    height: 200vh;
+    width: 200%;
+    background-color: #fff;
+    opacity: 0.7;
+    z-index: -1;
+  }
+  &__title {
+    margin-top: 150px;
+  }
+
+  &__text {
+    margin: 52px 0;
+  }
+
+  &__list {
+    margin-top: 60px;
+    display: flex;
+  }
+
+  &__item {
+    width: 33.3333333%;
+    padding: 30px 0;
+    padding-left: 20px;
+    border-left: 2px solid rgba(11, 19, 42, 0.5);
+    &:first-child {
+      padding-left: 0;
+      border-left: none;
+    }
+  }
+
+  &__item-title {
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
+
+  &__item-subtitle {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+  }
+}
